@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@chenfengyuan/datepicker": "^1.0.10",
+    "air-datepicker": "^3.2.0"
+  }
+}

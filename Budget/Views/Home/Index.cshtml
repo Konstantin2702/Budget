@@ -1,0 +1,106 @@
+﻿<div>
+    <div data-toggle="datepicker" class="datepicker-container" id="date" />
+    <div class="expenses">
+        <p>Расходы за день <output name="day_result">0</output></p>
+        <p>Расходы за месяц <output name="month_result">0</output></p>
+        <p>Расходы за год <output name="year_result">0</output></p>
+    </div>
+    <div>
+        <table class="expenses_table">  
+            <caption align="top">Расходы</caption>
+            <thead>
+                <tr>
+                    <th scope="col" style="width:25%">#</th>
+                    <th scope="col" style="width:25%">Имя</th>
+                    <th scope="col" style="width:25%">Фамилия</th>
+                    <th scope="col" style="width:25%">Username</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>                 
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>                    
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                </tr>
+            </tbody>
+        </table>
+
+         <table class="income_table">   
+             <caption align="top">Доходы</caption>
+            <thead>
+                <tr>
+                    <th scope="col" style="width:25%">#</th>
+                    <th scope="col" style="width:25%">Имя</th>
+                    <th scope="col" style="width:25%">Фамилия</th>
+                    <th scope="col" style="width:25%">Username</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>                 
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>                    
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Larry</td>
+                    <td>the Bird</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+@section Scripts
+{
+<link rel="stylesheet" type="text/css" href="css/datepicker.css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="js/datepicker.min.js"></script>
+
+<script src="js/jquery.js"></script>
+<script src="js/datepicker.js"></script>
+<script>
+           let myDatePicker = $('[data-toggle="datepicker"]').datepicker({
+          autoShow: true,
+           language: 'ru-RU',
+           inline: true
+           });
+
+
+
+           $.fn.datepicker.languages['ru-RU'] = {
+           format: 'dd.mm.YYYY',
+           days: ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'],
+           daysShort: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
+           daysMin: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
+           months: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+           monthsShort: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
+           weekStart: 1,
+           startView: 0,
+           yearFirst: false,
+           yearSuffix: ''
+         };
+
+    myDatePicker.on('change.datepicker',function(e){
+         let val = document.getElementById('datepicker').value;
+           console.log(val);
+
+        // e.date: current date
+    });
+</script>
+
+}
