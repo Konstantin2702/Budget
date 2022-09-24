@@ -1,4 +1,5 @@
 ﻿
+using Budget.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -16,6 +17,13 @@ namespace Budget.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+
+        [HttpPost, ActionName("AddConsumption")]
+        public IActionResult AddConsumption(Consumption consumption)
+        {
+            Console.WriteLine(consumption.Cost);
+            return Ok(); 
         }
     }
 }

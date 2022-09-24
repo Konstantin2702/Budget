@@ -1,7 +1,7 @@
 ﻿
 namespace Budget.Models
 {
-    public enum Categories
+    public enum Categories:int
     {
         Food,
         Transport,
@@ -17,6 +17,8 @@ namespace Budget.Models
         public double Cost { get; set; }
         
         public Categories Category { get; set; }
+
+        public string Purchase { get; set; }
         
     }
 }

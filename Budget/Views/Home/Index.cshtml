@@ -1,12 +1,34 @@
-﻿<div>
+﻿@model Budget.Models.Consumption
+
+<div>
     <div data-toggle="datepicker" class="datepicker-container" id="date" />
     <div class="expenses">
         <p>Расходы за день <output name="day_result">0</output></p>
         <p>Расходы за месяц <output name="month_result">0</output></p>
         <p>Расходы за год <output name="year_result">0</output></p>
     </div>
+    <button class="open-button" onclick="openForm()">Добавить расход</button>
+    <div class="form-popup" id="myForm">
+        <form method="post" asp-action="AddConsumption" class="form-container">
+
+            <label asp-for="Date" class="check-label"><b>Дата</b></label>
+            <input asp-for="Date" class="input" type="date"  name="date_consumtion" required>
+
+            <label asp-for="Cost" class="check-label"><b>Цена</b></label>
+            <input asp-for="Cost" class="input" type="number"  name="cost" required>
+
+            <label asp-for="Category" class="check-label"><b>Категория</b></label>
+            <select class="input" asp-for="Category"  asp-items="@Html.GetEnumSelectList(typeof(Categories))"></select>
+
+            <label asp-for="Purchase" class="check-label"><b>На что потрачено</b></label>
+            <input asp-for="Purchase" class="input" type="text"  name="purchase" required>
+
+            <input  class="btn-access" type="submit" value="Добавить"/>
+            <button type="submit" class="btn cancel" onclick="closeForm()">Закрыть</button>
+        </form>
+    </div>
     <div>
-        <table class="expenses_table">  
+        <table class="expenses_table">
             <caption align="top">Расходы</caption>
             <thead>
                 <tr>
@@ -20,12 +42,12 @@
                 <tr>
                     <th scope="row">1</th>
                     <td>Mark</td>
-                    <td>Otto</td>                 
+                    <td>Otto</td>
                 </tr>
                 <tr>
                     <th scope="row">2</th>
                     <td>Jacob</td>
-                    <td>Thornton</td>                    
+                    <td>Thornton</td>
                 </tr>
                 <tr>
                     <th scope="row">3</th>
@@ -35,8 +57,8 @@
             </tbody>
         </table>
 
-         <table class="income_table">   
-             <caption align="top">Доходы</caption>
+        <table class="income_table">
+            <caption align="top">Доходы</caption>
             <thead>
                 <tr>
                     <th scope="col" style="width:25%">#</th>
@@ -49,12 +71,12 @@
                 <tr>
                     <th scope="row">1</th>
                     <td>Mark</td>
-                    <td>Otto</td>                 
+                    <td>Otto</td>
                 </tr>
                 <tr>
                     <th scope="row">2</th>
                     <td>Jacob</td>
-                    <td>Thornton</td>                    
+                    <td>Thornton</td>
                 </tr>
                 <tr>
                     <th scope="row">3</th>
@@ -74,32 +96,43 @@
 <script src="js/jquery.js"></script>
 <script src="js/datepicker.js"></script>
 <script>
-           let myDatePicker = $('[data-toggle="datepicker"]').datepicker({
-          autoShow: true,
-           language: 'ru-RU',
-           inline: true
-           });
+                   let myDatePicker = $('[data-toggle="datepicker"]').datepicker({
+                  autoShow: true,
+                   language: 'ru-RU',
+                   inline: true
+                   });
 
 
 
-           $.fn.datepicker.languages['ru-RU'] = {
-           format: 'dd.mm.YYYY',
-           days: ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'],
-           daysShort: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
-           daysMin: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
-           months: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
-           monthsShort: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
-           weekStart: 1,
-           startView: 0,
-           yearFirst: false,
-           yearSuffix: ''
-         };
+                   $.fn.datepicker.languages['ru-RU'] = {
+                   format: 'dd.mm.YYYY',
+                   days: ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'],
+                   daysShort: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
+                   daysMin: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
+                   months: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+                   monthsShort: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
+                   weekStart: 1,
+                   startView: 0,
+                   yearFirst: false,
+                   yearSuffix: ''
+                 };
 
-    myDatePicker.on('change.datepicker',function(e){
-         let val = document.getElementById('datepicker').value;
-           console.log(val);
+            myDatePicker.on('change.datepicker',function(e){
+                 let val = document.getElementById('datepicker').value;
+                   console.log(val);
 
-        // e.date: current date
+                // e.date: current date
+            });
+
+            function openForm() {
+          document.getElementById("myForm").style.display = "block";
+        }
+
+        function closeForm() {
+          document.getElementById("myForm").style.display = "none";
+        }
+        $('select#cities').on('change', function() {
+      $('input[name="city"]').val(this.value);
     });
 </script>
 
