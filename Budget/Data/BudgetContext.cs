@@ -9,7 +9,7 @@ namespace Budget.Data
 
         public BudgetContext(DbContextOptions<BudgetContext> options):base(options)
         {
-
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
         }
     }
 }
