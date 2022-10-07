@@ -1,3 +1,5 @@
+
+
 html {
   font-size: 14px;
 }
@@ -9,28 +11,56 @@ html {
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+/*  position: relative;
+  min-height: 100%;*/
 }
 
 body {
     font-family: Arial, sans-serif; /* ׀ףבכוםûי רנטפע #*/
 }
 
+.main{
 
+}
+
+.left-container {
+    position:absolute;
+    left:2%;
+    top:10%;
+    float: left;
+    margin: 0px;
+    padding: 0px;
+    width: 70%;
+}
+
+
+.expenses {
+    position: relative;
+    top: 30px;
+    font-size: 20px;
+}
+.tables {
+    width: 60%;
+    min-width: 450px;
+    position:absolute;
+    right:0%;
+}
 
 .expenses_table {
     border: 3px groove black;
-    position: fixed;
-    right: 3%;
-    top: 5%;
+    float: left;
+    margin-left: 5%;
+    width:40%;
+    min-width:130px;
+
 }
 
 .income_table {
     border: 3px groove black;
-    position: fixed;
-    right: 30%;
-    top: 5%;
+    float: right;
+    width: 40%;
+    margin-right: 5%;
+    min-width: 130px;
 }
 
 caption {
@@ -130,16 +160,4 @@ caption {
     width:100%;
 }
 
-.left-container{
-    position:absolute;
-    left:2%;
-    top:10%;
-    width: 70%;
-}
 
-
-.expenses {
-    position:relative;
-    top: 30px;
-    font-size:20px;
-}
