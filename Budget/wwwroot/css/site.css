@@ -17,11 +17,7 @@ body {
     font-family: Arial, sans-serif; /* ׀ףבכוםûי רנטפע #*/
 }
 
-.expenses {
-    position: fixed;
-    left: 3%;
-    top: 50%;
-}
+
 
 .expenses_table {
     border: 3px groove black;
@@ -132,4 +128,18 @@ caption {
 
 .input{
     width:100%;
+}
+
+.left-container{
+    position:absolute;
+    left:2%;
+    top:10%;
+    width: 70%;
+}
+
+
+.expenses {
+    position:relative;
+    top: 30px;
+    font-size:20px;
 }

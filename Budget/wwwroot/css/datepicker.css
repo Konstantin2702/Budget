@@ -10,113 +10,26 @@
 
 .datepicker-container {
     background-color: #fff;
-    direction: ltr;
     font-size: 20px;
-    left: 3%;
-    line-height: 30px;
-    position: fixed;
-    -webkit-tap-highlight-color: transparent;
-    top: 10%;
-    -ms-touch-action: none;
-    touch-action: none;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    width: 55%;
-    z-index: -1;
+    width:55%;
     
 }
 
-.datepicker-container::before,
-.datepicker-container::after {
- 
-  content: " ";
-  display: block;
-  height: 0;
-  position: absolute;
-  width: 0;
-}
 
-.datepicker-dropdown {
-  border: 1px solid #ccc;
-  -webkit-box-shadow: 0 3px 6px #ccc;
-  box-shadow: 0 3px 6px #ccc;
-  -webkit-box-sizing: content-box;
-  box-sizing: content-box;
-  position: absolute;
-  z-index: 1;
-}
 
 .datepicker-panel {
-    width: 50%;
+    width: 100%;
     border: 3px groove black;
 }
 
 
 
-.datepicker-top-left,
-.datepicker-top-right {
-  border-top-color: #39f;
 
-}
-
-.datepicker-top-left::before,
-.datepicker-top-left::after,
-.datepicker-top-right::before,
-.datepicker-top-right::after {
-  border-top: 0;
-  left: 10px;
-  top: -5px;
-}
-
-.datepicker-top-left::before,
-.datepicker-top-right::before {
-  border-bottom-color: #39f;
-}
-
-.datepicker-top-left::after,
-.datepicker-top-right::after {
-  border-bottom-color: #fff;
-  top: -4px;
-}
 
 .datepicker-bottom-left,
 .datepicker-bottom-right {
   border-bottom-color: #39f;
 }
-
-.datepicker-bottom-left::before,
-.datepicker-bottom-left::after,
-.datepicker-bottom-right::before,
-.datepicker-bottom-right::after {
-  border-bottom: 0;
-  bottom: -5px;
-  left: 10px;
-
-}
-
-.datepicker-bottom-left::before,
-.datepicker-bottom-right::before {
-  border-top-color: #39f;
-}
-
-.datepicker-bottom-left::after,
-.datepicker-bottom-right::after {
-  border-top-color: #fff;
-  bottom: -4px;
-}
-
-.datepicker-top-right::before,
-.datepicker-top-right::after,
-.datepicker-bottom-right::before,
-.datepicker-bottom-right::after {
-  left: auto;
-  right: 10px;
-}
-
-
 
 
 .datepicker-panel > ul {
@@ -126,8 +39,8 @@
    
 }
 
-.datepicker-panel > ul::before,
-.datepicker-panel > ul::after {
+.datepicker-panel > ul,
+.datepicker-panel > ul {
   content: " ";
   display: table;
 
@@ -206,16 +119,7 @@
 
 .datepicker-panel > ul[data-view="years"] > li,
 .datepicker-panel > ul[data-view="months"] > li {
-  height: 52.5px;
-  line-height: 52.5px;
-  width: 52.5px;
 
-}
-
-.datepicker-panel > ul[data-view="week"] > li,
-.datepicker-panel > ul[data-view="week"] > li:hover {
-  background-color: #fff;
-  cursor: default;
 }
 
 .datepicker-hide {

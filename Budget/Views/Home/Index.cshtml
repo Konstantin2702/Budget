@@ -1,32 +1,36 @@
 ﻿@model Budget.Models.Consumption
 
 <div>
-    <div data-toggle="datepicker" class="datepicker-container" id="date" />
-    <div class="expenses">
-        <p>Расходы за день <output name="day_result">0</output></p>
-        <p>Расходы за месяц <output name="month_result">0</output></p>
-        <p>Расходы за год <output name="year_result">0</output></p>
+    <div class="left-container">
+        <div data-toggle="datepicker" class="datepicker-container" id="date" >
+        </div>
+        <div class="expenses">
+            <p>Расходы за день <output name="day_result">0</output></p>
+            <p>Расходы за месяц <output name="month_result">0</output></p>
+            <p>Расходы за год <output name="year_result">0</output></p>
+        </div>
     </div>
     <button class="open-button" onclick="openForm()">Добавить расход</button>
     <div class="form-popup" id="myForm">
         <form method="post" asp-action="AddConsumption" class="form-container">
 
             <label asp-for="Date" class="check-label"><b>Дата</b></label>
-            <input asp-for="Date" class="input" type="date"    required >
+            <input asp-for="Date" class="input" type="date" required>
 
             <label asp-for="Cost" class="check-label"><b>Цена</b></label>
-            <input asp-for="Cost" class="input" type="number"  name="cost" required>
+            <input asp-for="Cost" class="input" type="number" name="cost" required>
 
             <label asp-for="Category" class="check-label"><b>Категория</b></label>
-            <select class="input" asp-for="Category"  asp-items="@Html.GetEnumSelectList(typeof(Categories))"></select>
+            <select class="input" asp-for="Category" asp-items="@Html.GetEnumSelectList(typeof(Categories))"></select>
 
             <label asp-for="Purchase" class="check-label"><b>На что потрачено</b></label>
-            <input asp-for="Purchase" class="input" type="text"  name="purchase" required>
+            <input asp-for="Purchase" class="input" type="text" name="purchase" required>
 
-            <input  class="btn-access" type="submit" value="Добавить"/>
+            <input class="btn-access" type="submit" value="Добавить" />
             <button type="submit" class="btn cancel" onclick="closeForm()">Закрыть</button>
         </form>
     </div>
+
     <div>
         <table class="expenses_table">
             <caption align="top">Расходы</caption>
@@ -117,12 +121,7 @@
                    yearSuffix: ''
                  };
 
-            myDatePicker.on('change.datepicker',function(e){
-                 let val = document.getElementById('datepicker').value;
-                   console.log(val);
 
-                // e.date: current date
-            });
 
             function openForm() {
           document.getElementById("myForm").style.display = "block";

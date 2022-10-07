@@ -34,7 +34,7 @@ namespace Budget.Controllers
             {
                 return StatusCode(500);
             }
-            return RedirectToAction("Index"); 
+            return RedirectToAction(nameof(Index)); 
         }
     }
 }
